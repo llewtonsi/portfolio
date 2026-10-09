@@ -1,3 +1,7 @@
+* {
+    color: #ffffff;
+}
+
 .center-block {
     display: flex;
     justify-content: center;
@@ -10,4 +14,12 @@
     align-items: center;
     border-radius: 50px;
 
+}
+
+body {
+    background-color: #000000;
+    background-image: url(gif/nevermore_banner.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
