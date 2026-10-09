@@ -68,3 +68,14 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+hr {
+    border: none;
+    border-top: 2.5px solid green;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
