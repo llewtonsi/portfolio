@@ -6,8 +6,21 @@
 }
 
 * {
+  * box-sizing: border-box;
+  * margin: 0;
+  * padding: 0;
     font-family: 'My Font';
     color: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
 }
 
 body {
@@ -18,7 +31,7 @@ button {
     background-color: #000000;
     border-radius: 25%;
     padding: 8px;
-}
+  }
 
 button:hover {
     background-color: #ffffff90;
