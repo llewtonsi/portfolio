@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'My Font';
-    src: url(font/Isometra-Regular.ttf);
+    src: url(font/JetBrainsMonoNerdFontMono-Regular.ttf);
     font-weight: normal;
     font-style: normal;
 }
@@ -20,6 +20,9 @@ img, video, iframe {
 
 button {
     background-color: #000000;
+    border-style: solid;
+    border-width: 2.5px;
+    border-color: green;
     border-radius: 25%;
     padding: 12px 18px;
     font-size: 1rem;
@@ -41,13 +44,20 @@ button:hover {
     max-width: 60ch;
 }
 
+.nav {
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 .profile-img {
-    border-radius: 50px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: green;
+    border-width: 5px;
 }
 
 body {
     background-color: #000000;
-    background-image: url(gif/nevermore_banner.gif);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
