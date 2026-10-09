@@ -20,6 +20,10 @@ button {
     padding: 8px;
 }
 
+button:hover {
+    background-color: #ffffff90;
+}
+
 .center-block {
     display: flex;
     justify-content: center;
