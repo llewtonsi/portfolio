@@ -1,5 +1,17 @@
+@font-face {
+    font-family: 'My Font';
+    src: url(font/Isometra-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
+    font-family: 'My Font';
     color: #ffffff;
+}
+
+body {
+    font-family: 'My Font';
 }
 
 button {
