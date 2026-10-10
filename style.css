@@ -26,10 +26,16 @@ button {
     border-radius: 25%;
     padding: 12px 18px;
     font-size: 1rem;
+
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
   }
 
 button:hover {
-    background-color: #333333;
+    cursor: pointer;
+    background-color: green;
 }
 
 .center-block {
