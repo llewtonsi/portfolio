@@ -1,3 +1,25 @@
+/* ============================================================
+   Llewtonsi — style.css
+   RESPONSIVE STRATEGY (read this first)
+   ------------------------------------------------------------
+   1. NO HARDCODED LAYOUT SIZES. Every size that must adapt to
+      the device uses clamp(min, fluid, max):
+
+            clamp(4.5rem, 14.5vw, 12.5rem)
+             ^never       ^grows with the   ^never
+              smaller      viewport width     bigger
+
+      vw = 1% of viewport width   -> reacts to how WIDE the screen is
+      vh = 1% of viewport height  -> reacts to how SHORT the screen is
+      rem = root font size        -> reacts to the user's font setting
+
+      Because the middle value is continuous, the layout adjusts at
+      EVERY pixel width — not just at the jumps of a media query.
+   2. Flex rows use flex-wrap: wrap, so nothing can ever overflow;
+      items re-flow onto the next line instead.
+   3. MEDIA QUERIES are reserved for the one thing fluid units
+      cannot express: "the screen is short AND in landscape".
+   ============================================================ */
 
 * {
     box-sizing: border-box;
@@ -7,6 +29,8 @@
     color: #ffffff;
 }
 
+/* Safety net: a media element may never be wider than its container,
+   and height stays auto so a CSS width keeps the aspect ratio. */
 img, video, iframe {
     max-width: 100%;
     height: auto;
@@ -16,11 +40,33 @@ body {
     background-color: #000000;
 }
 
+/* ---------- Typography: fluid ---------- */
+
+/* ~24px on a phone, ~32px on a laptop, ~44px on a big monitor */
+h1 { font-size: clamp(1.5rem, 1rem + 1.1vw, 2.75rem); }
+
+h2 { font-size: clamp(1.1rem, 0.75rem + 0.85vw, 1.85rem); }
+
+p {
+    font-size: clamp(0.9rem, 0.875rem + 0.2vw, 1.15rem);
+    line-height: 1.5;
+    /* ch = width of the character "0" -> 72 chars is a comfortable
+       line length on any screen; on phones it simply never binds */
+    max-width: 72ch;
+}
+
+/* ---------- Buttons: fluid width, padding and font ---------- */
+/* The three values are tuned together: the longest label ("Projects")
+   must always fit inside the button, so font and padding are allowed
+   to grow SLOWER than the width does — and the width's minimum (68px)
+   is chosen so four buttons still fit side by side at 320px, even
+   after the browser reserves space for its scrollbar. */
 button {
-    width: clamp(90px, 18vw, 200px);
+    width: clamp(4.25rem, 14.5vw, 12.5rem);
+    padding: 0.5rem clamp(0.1875rem, 0.6vw, 1rem);
+    font-size: clamp(0.7rem, 0.6rem + 0.4vw, 1.05rem);
+
     background-color: #000000;
-    padding: 8px 16px;
-    font-size: 1rem;
 
     border-style: solid;
     border-width: 2.5px;
@@ -33,7 +79,6 @@ button {
     transition-delay: 0s;
 }
 
-
 button:hover {
     cursor: pointer;
     background-color: green;
@@ -45,6 +90,8 @@ hr {
     border-top: 2.5px solid green;
 }
 
+/* Fixed top bar. Note this targets the <nav> ELEMENT, so it also
+   styles the button bar (.navbar is a <nav> too). */
 nav {
     top: 0;
     width: 100%;
@@ -58,6 +105,9 @@ nav {
 }
 
 .cassette {
+    /* used to be width="120" in the HTML */
+    width: clamp(5rem, 2rem + 7vw, 10rem);
+
     cursor: pointer;
     transition-property: transform;
     transition-duration: 0.50s;
@@ -69,167 +119,69 @@ nav {
     transform: rotate(360deg);
 }
 
+/* ---------- Layout ---------- */
+
 .center-block {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 16px;
+    /* wrap + gap: rows re-flow instead of overflowing, on any device */
+    flex-wrap: wrap;
+    gap: clamp(0.25rem, 1vw, 0.75rem);
+    padding: clamp(0.5rem, 1.6vw, 1rem) clamp(0.75rem, 2.5vw, 1.5rem);
 }
 
 .navbar {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: nowrap;
-    gap: 8px;
+    /* gap and padding minima keep four buttons on one line at 320px */
+    gap: clamp(0.1875rem, 1vw, 0.5rem);
+    padding: clamp(0.4rem, 1.4vw, 0.85rem) clamp(0.375rem, 1.5vw, 1rem);
+}
+
+/* Anchor jumps (#about, #projects) must stop below the fixed navbar,
+   whose height grows together with these clamp() values. */
+section {
+    scroll-margin-top: clamp(3.5rem, 6vw, 4.75rem);
 }
 
 .profile-img {
+    /* used to be width="200" in the HTML */
+    width: clamp(8.5rem, 6.25rem + 8vw, 20rem);
+
     border-style: solid;
     border-radius: 20px;
     border-color: green;
-    border-width: 5px;
+    border-width: clamp(3px, 0.35vw, 6px);
 }
 
 .pic {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+    /* used to be width="150" (×4) in the HTML.
+       3rem + 10vw keeps three covers side by side from 320px upward. */
+    width: clamp(5.5rem, 3rem + 10vw, 11rem);
+    padding: clamp(0.25rem, 0.8vw, 0.625rem);
 }
 
 /* ============================================================
-   RESPONSIVE / MEDIA QUERIES
-   Desktop-first: rules only tighten the layout as the viewport
-   shrinks (and loosen it again on big screens).
-   Breakpoints run large -> small so the smaller screens always win.
+   MEDIA QUERY — the only one we need
+   ------------------------------------------------------------
+   Width is already handled fluidly above. What clamp(...vw...)
+   cannot know is that the HEIGHT is the problem: a phone on its
+   side (or a very short window) has plenty of width but no room
+   to scroll. That is the one case a media query must express.
    ============================================================ */
+@media (orientation: landscape) and (max-height: 26.25rem) {
 
-/* --- Laptops & small desktops (<= 1440px) ------------------- */
-@media (max-width: 1440px) {
+    /* size images off the viewport height instead of the width */
+    .profile-img,
+    .pic,
+    .cassette { width: clamp(4rem, 20vh, 10rem); }
 
-    /* Fluid type: text scales with the screen instead of
-       jumping between fixed sizes */
-    h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
-    h2 { font-size: clamp(1.1rem, 2.4vw, 1.5rem); }
-    p  { font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.5; }
+    /* tighten the vertical rhythm so the page fits on a short screen */
+    .center-block { padding-block: clamp(0.25rem, 2vh, 0.6rem); }
 
-    /* Keep #about / #projects headings from landing
-       underneath the fixed navbar */
-    section { scroll-margin-top: 70px; }
-}
-
-/* --- Tablets / small laptops (<= 1024px) -------------------- */
-@media (max-width: 1024px) {
-    .center-block { padding: 8px 12px; }
-
-    button { width: clamp(80px, 17vw, 200px); }
-
-    .profile-img { width: clamp(160px, 24vw, 200px); height: auto; }
-
-    section { scroll-margin-top: 70px; }
-}
-
-/* --- Small tablets / large phones (<= 768px) ---------------- */
-@media (max-width: 768px) {
-
-    /* Rows wrap instead of overflowing the screen */
-    .center-block { flex-wrap: wrap; gap: 6px; }
-    .navbar { flex-wrap: wrap; }
-
-    button {
-        width: clamp(72px, 21vw, 160px);
-        padding: 6px 8px;
-        font-size: clamp(0.8rem, 2.6vw, 1rem);
-    }
-
-    .pic { width: clamp(100px, 27vw, 150px); padding: 8px 6px; height: auto; }
-
-    section { scroll-margin-top: 70px; }
-}
-
-/* --- Phones (<= 480px) -------------------------------------- */
-@media (max-width: 480px) {
-    .center-block { padding: 6px 10px; gap: 6px; }
-    .navbar { padding: 6px 8px; }
-
-    h1 { font-size: clamp(1.25rem, 6vw, 1.6rem); }
-    h2 { font-size: clamp(1rem, 4.5vw, 1.25rem); }
-    p  { font-size: clamp(0.85rem, 3.6vw, 1rem); }
-
-    button {
-        width: clamp(66px, 21vw, 150px);
-        padding: 6px 4px;
-        font-size: clamp(0.7rem, 3.2vw, 0.95rem);
-    }
-
-    .profile-img { width: clamp(140px, 44vw, 200px); height: auto; }
-    .pic { width: clamp(88px, 27vw, 150px); padding: 6px 4px; }
-    #music-button { width: clamp(90px, 30vw, 120px); height: auto; }
-
-    section { scroll-margin-top: 60px; }
-}
-
-/* --- Very small phones (<= 360px, e.g. iPhone SE) ----------- */
-@media (max-width: 360px) {
-    .center-block { padding: 6px 6px; gap: 4px; }
-    .navbar { padding: 6px 4px; }
-
-    h1 { font-size: clamp(1.1rem, 7vw, 1.4rem); }
-    p  { font-size: clamp(0.8rem, 4vw, 0.95rem); }
-
-    button {
-        width: clamp(60px, 22vw, 100px);
-        padding: 6px 4px;
-        font-size: clamp(0.65rem, 3.4vw, 0.8rem);
-    }
-
-    .profile-img { width: clamp(120px, 46vw, 200px); height: auto; }
-    .pic { width: clamp(80px, 28vw, 150px); }
-    #music-button { width: clamp(80px, 32vw, 120px); height: auto; }
-}
-
-/* --- Big screens (>= 1441px): breathe instead of stretch ---- */
-@media (min-width: 1441px) {
-    h1 { font-size: clamp(2rem, 2.6vw, 2.75rem); }
-    h2 { font-size: clamp(1.5rem, 1.8vw, 1.9rem); }
-    p  { font-size: 1.1rem; line-height: 1.6; max-width: 72ch; margin-inline: auto; }
-
-    .center-block { padding: 12px 24px; }
-
-    .profile-img { width: clamp(200px, 13vw, 260px); height: auto; }
-    .pic { width: clamp(150px, 10vw, 190px); height: auto; }
-    #music-button { width: clamp(120px, 8vw, 160px); height: auto; }
-
-    section { scroll-margin-top: 76px; }
-}
-
-/* --- Ultrawide (>= 1920px) ---------------------------------- */
-@media (min-width: 1920px) {
-    h1 { font-size: clamp(2.4rem, 2.4vw, 3.2rem); }
-    p  { font-size: 1.2rem; max-width: 76ch; }
-
-    .profile-img { width: clamp(240px, 12vw, 320px); height: auto; }
-    .pic { width: clamp(180px, 9vw, 220px); }
-    #music-button { width: clamp(150px, 7vw, 190px); height: auto; }
-
-    section { scroll-margin-top: 84px; }
-}
-
-/* --- Short landscape screens (phone sideways, short window)  */
-@media (orientation: landscape) and (max-height: 520px) {
-    .center-block { padding: 4px 12px; }
-    .navbar { padding: 4px 8px; }
-
-    h1 { font-size: clamp(1.1rem, 5vh, 1.5rem); }
-    h2 { font-size: clamp(0.95rem, 4vh, 1.2rem); }
-
-    button { padding: 5px 8px; font-size: clamp(0.75rem, 3.4vh, 1rem); }
-
-    /* Scale images off the viewport HEIGHT so the page still fits */
-    .profile-img { width: clamp(80px, 24vh, 170px); height: auto; }
-    .pic { width: clamp(70px, 22vh, 150px); }
-    #music-button { width: clamp(64px, 20vh, 120px); height: auto; }
-
-    section { scroll-margin-top: 56px; }
+    /* the fixed navbar is shorter here as well */
+    section { scroll-margin-top: clamp(3.25rem, 18vh, 4rem); }
 }
 
 @font-face {
