@@ -17,9 +17,9 @@ body {
 }
 
 button {
-    width: clamp(150px, 50%, 400px);
+    width: clamp(90px, 18vw, 200px);
     background-color: #000000;
-    padding: 10px 30px;
+    padding: 8px 16px;
     font-size: 1rem;
 
     border-style: solid;
@@ -41,6 +41,7 @@ button:hover {
 
 hr {
     border: none;
+    width: 100%;
     border-top: 2.5px solid green;
 }
 
@@ -78,8 +79,8 @@ nav {
 .navbar {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 12px;
+    flex-wrap: nowrap;
+    gap: 8px;
 }
 
 .profile-img {
@@ -96,9 +97,7 @@ nav {
 }
 
 @media (max-width: 1440px) {
-    button {
-        width: 100%;
-    }
+
 }
 
 @font-face {
