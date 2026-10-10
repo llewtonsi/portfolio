@@ -96,8 +96,140 @@ nav {
     padding-left: 10px;
 }
 
+/* ============================================================
+   RESPONSIVE / MEDIA QUERIES
+   Desktop-first: rules only tighten the layout as the viewport
+   shrinks (and loosen it again on big screens).
+   Breakpoints run large -> small so the smaller screens always win.
+   ============================================================ */
+
+/* --- Laptops & small desktops (<= 1440px) ------------------- */
 @media (max-width: 1440px) {
 
+    /* Fluid type: text scales with the screen instead of
+       jumping between fixed sizes */
+    h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+    h2 { font-size: clamp(1.1rem, 2.4vw, 1.5rem); }
+    p  { font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.5; }
+
+    /* Keep #about / #projects headings from landing
+       underneath the fixed navbar */
+    section { scroll-margin-top: 70px; }
+}
+
+/* --- Tablets / small laptops (<= 1024px) -------------------- */
+@media (max-width: 1024px) {
+    .center-block { padding: 8px 12px; }
+
+    button { width: clamp(80px, 17vw, 200px); }
+
+    .profile-img { width: clamp(160px, 24vw, 200px); height: auto; }
+
+    section { scroll-margin-top: 70px; }
+}
+
+/* --- Small tablets / large phones (<= 768px) ---------------- */
+@media (max-width: 768px) {
+
+    /* Rows wrap instead of overflowing the screen */
+    .center-block { flex-wrap: wrap; gap: 6px; }
+    .navbar { flex-wrap: wrap; }
+
+    button {
+        width: clamp(72px, 21vw, 160px);
+        padding: 6px 8px;
+        font-size: clamp(0.8rem, 2.6vw, 1rem);
+    }
+
+    .pic { width: clamp(100px, 27vw, 150px); padding: 8px 6px; height: auto; }
+
+    section { scroll-margin-top: 70px; }
+}
+
+/* --- Phones (<= 480px) -------------------------------------- */
+@media (max-width: 480px) {
+    .center-block { padding: 6px 10px; gap: 6px; }
+    .navbar { padding: 6px 8px; }
+
+    h1 { font-size: clamp(1.25rem, 6vw, 1.6rem); }
+    h2 { font-size: clamp(1rem, 4.5vw, 1.25rem); }
+    p  { font-size: clamp(0.85rem, 3.6vw, 1rem); }
+
+    button {
+        width: clamp(66px, 21vw, 150px);
+        padding: 6px 4px;
+        font-size: clamp(0.7rem, 3.2vw, 0.95rem);
+    }
+
+    .profile-img { width: clamp(140px, 44vw, 200px); height: auto; }
+    .pic { width: clamp(88px, 27vw, 150px); padding: 6px 4px; }
+    #music-button { width: clamp(90px, 30vw, 120px); height: auto; }
+
+    section { scroll-margin-top: 60px; }
+}
+
+/* --- Very small phones (<= 360px, e.g. iPhone SE) ----------- */
+@media (max-width: 360px) {
+    .center-block { padding: 6px 6px; gap: 4px; }
+    .navbar { padding: 6px 4px; }
+
+    h1 { font-size: clamp(1.1rem, 7vw, 1.4rem); }
+    p  { font-size: clamp(0.8rem, 4vw, 0.95rem); }
+
+    button {
+        width: clamp(60px, 22vw, 100px);
+        padding: 6px 4px;
+        font-size: clamp(0.65rem, 3.4vw, 0.8rem);
+    }
+
+    .profile-img { width: clamp(120px, 46vw, 200px); height: auto; }
+    .pic { width: clamp(80px, 28vw, 150px); }
+    #music-button { width: clamp(80px, 32vw, 120px); height: auto; }
+}
+
+/* --- Big screens (>= 1441px): breathe instead of stretch ---- */
+@media (min-width: 1441px) {
+    h1 { font-size: clamp(2rem, 2.6vw, 2.75rem); }
+    h2 { font-size: clamp(1.5rem, 1.8vw, 1.9rem); }
+    p  { font-size: 1.1rem; line-height: 1.6; max-width: 72ch; margin-inline: auto; }
+
+    .center-block { padding: 12px 24px; }
+
+    .profile-img { width: clamp(200px, 13vw, 260px); height: auto; }
+    .pic { width: clamp(150px, 10vw, 190px); height: auto; }
+    #music-button { width: clamp(120px, 8vw, 160px); height: auto; }
+
+    section { scroll-margin-top: 76px; }
+}
+
+/* --- Ultrawide (>= 1920px) ---------------------------------- */
+@media (min-width: 1920px) {
+    h1 { font-size: clamp(2.4rem, 2.4vw, 3.2rem); }
+    p  { font-size: 1.2rem; max-width: 76ch; }
+
+    .profile-img { width: clamp(240px, 12vw, 320px); height: auto; }
+    .pic { width: clamp(180px, 9vw, 220px); }
+    #music-button { width: clamp(150px, 7vw, 190px); height: auto; }
+
+    section { scroll-margin-top: 84px; }
+}
+
+/* --- Short landscape screens (phone sideways, short window)  */
+@media (orientation: landscape) and (max-height: 520px) {
+    .center-block { padding: 4px 12px; }
+    .navbar { padding: 4px 8px; }
+
+    h1 { font-size: clamp(1.1rem, 5vh, 1.5rem); }
+    h2 { font-size: clamp(0.95rem, 4vh, 1.2rem); }
+
+    button { padding: 5px 8px; font-size: clamp(0.75rem, 3.4vh, 1rem); }
+
+    /* Scale images off the viewport HEIGHT so the page still fits */
+    .profile-img { width: clamp(80px, 24vh, 170px); height: auto; }
+    .pic { width: clamp(70px, 22vh, 150px); }
+    #music-button { width: clamp(64px, 20vh, 120px); height: auto; }
+
+    section { scroll-margin-top: 56px; }
 }
 
 @font-face {
