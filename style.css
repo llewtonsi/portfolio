@@ -190,3 +190,14 @@ section {
     font-weight: normal;
     font-style: normal;
 }
+
+.r {
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-delay: 0s;
+    transition-timing-function: ease;
+}
+
+.r:hover {
+    transform: rotate(360deg); 
+}
