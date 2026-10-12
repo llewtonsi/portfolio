@@ -201,3 +201,13 @@ section {
 .r:hover {
     transform: rotate(360deg); 
 }
+
+.up {
+    transition: width 0.5s;
+}
+
+.up:hover {
+    height: auto;
+    width: 14%;
+
+}
