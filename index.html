@@ -41,16 +41,25 @@
             </div>
         </section>
 
-        <section id="about" class="section wrap">
-            <div class="section-heading"><h2> About<span> Me</span></h2></div>
-            <div class="about-grid">
-                <article class="panel education"><p class="label">Education</p><img src="img/vsu.png" alt="Visayas State University" class="school-logo"><h3>Bachelor of Science in Computer Science</h3><p>Visayas State University</p></article>
-                <article class="panel"><p class="label">Hobbies</p><h3>Things I enjoy</h3><p>I’m drawn to dark fantasy and open-world games, including Skyrim, Dark Souls, and Elden Ring. I also enjoy logic games like chess and Sudoku.</p><div class="game-covers"><img src="img/The_Elder_Scrolls_V_Skyrim_cover.png" alt="The Elder Scrolls V: Skyrim"><img src="img/dark_souls.png" alt="Dark Souls"><img src="img/dark_souls_2.jpg" alt="Dark Souls 2"><img src="img/dark_souls_3.jpg" alt="Dark Souls 3"><img src="img/elden_ring.png" alt="Elden Ring"></div></article>
+        <section id="about" class="section wrap about-section">
+            <div class="section-heading"><h2>About<span> Me</span></h2><p class="section-note">I’m a Computer Science student who likes exploring big worlds, untangling puzzles, and learning how things work.</p></div>
+            <div class="about-layout">
+                <article class="education-card"><p class="label">01 / Education</p><div class="education-line"><img src="img/vsu.png" alt="Visayas State University" class="school-logo"><div><h3>Bachelor of Science<br>in Computer Science</h3><p>Visayas State University</p></div></div><span class="education-index" aria-hidden="true">01</span></article>
+                <article class="hobbies-card"><div class="hobby-heading"><div><p class="label">02 / Hobbies</p><h3>Worlds I get lost in</h3></div><p>From wandering through open worlds to facing one more tough boss, these are a few favorites.</p></div>
+                    <div class="hobby-gallery" aria-label="Favorite games">
+                        <figure class="hobby-art"><img src="img/The_Elder_Scrolls_V_Skyrim_cover.png" alt="The Elder Scrolls V: Skyrim cover"><figcaption> Skyrim</figcaption></figure>
+                        <figure class="hobby-art"><img src="img/elden_ring.png" alt="Elden Ring cover"><figcaption> Elden Ring</figcaption></figure>
+                        <figure class="hobby-art"><img src="img/dark_souls.png" alt="Dark Souls cover"><figcaption> Dark Souls</figcaption></figure>
+                        <figure class="hobby-art"><img src="img/dark_souls_2.jpg" alt="Dark Souls II cover"><figcaption> Dark Souls II</figcaption></figure>
+                        <figure class="hobby-art"><img src="img/dark_souls_3.jpg" alt="Dark Souls III cover"><figcaption> Dark Souls III</figcaption></figure>
+                    </div>
+                    <p class="hobby-footnote"><span aria-hidden="true">♟</span> Also happy with a chessboard or a good Sudoku puzzle.</p>
+                </article>
             </div>
         </section>
 
         <section id="projects" class="section wrap">
-            <div class="section-heading"><h2>My<span> Projects</span></h2></div>
+            <div class="section-heading"><h2>My<span> Projects</span></h2><p class="section-note">A few things I’ve built while learning, experimenting, and working with others.</p></div>
             <div class="project-grid">
                 <a class="project-card" href="https://codebucket-joshwell.vercel.app" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">01</span><span class="external">↗</span></div><img src="img/codebucket_icon.png" alt="" class="project-icon"><h3>Codebucket</h3><p>A programming practice platform with coding challenges and support for multiple languages.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></a>
                 <a class="project-card" href="https://github.com/llewtonsi/veinfall" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">02</span><span class="external">↗</span></div><img src="img/veinfall_icon.png" alt="" class="project-icon"><h3>Veinfall</h3><p>An open-source game project currently in development.</p><div class="tags"><span>Open source</span><span>Game development</span></div></a>
@@ -59,21 +68,19 @@
 
         <section id="skills" class="section wrap">
             <div class="section-heading"><h2>My<span> Skills</span></h2><p class="section-note">Technologies and practices I’m developing through coursework and personal projects.</p></div>
-            <div class="skills-panel panel">
-                <div class="skill-group"><p class="label">Languages</p><div class="skill-list">
-                    <span class="skill-item"><img src="img/c_logo.webp" alt=""></span>
-                    <span class="skill-item"><img src="img/cpp_logo.png" alt=""></span>
-                    <span class="skill-item"><img src="img/Python-logo-notext.svg" alt=""></span>
-                    <span class="skill-item"><img src="img/html_logo.png" alt=""></span>
-                    <span class="skill-item"><img src="img/css_logo.png" alt=""></span>
-                    <span class="skill-item"><img src="img/js_logo.png" alt=""></span>
-                </div></div>
-            </div>
+            <ul class="skills-list" aria-label="Languages and technologies">
+                <li class="skill-item"><img src="img/c_logo.webp" alt="">C</li>
+                <li class="skill-item"><img src="img/cpp_logo.png" alt="">C++</li>
+                <li class="skill-item"><img src="img/Python-logo-notext.svg" alt="">Python</li>
+                <li class="skill-item"><img src="img/html_logo.png" alt="">HTML</li>
+                <li class="skill-item"><img src="img/css_logo.png" alt="">CSS</li>
+                <li class="skill-item"><img src="img/js_logo.png" alt="">JavaScript</li>
+            </ul>
         </section>
 
         <section id="contact" class="section wrap contact-section">
-            <p class="eyebrow">04</p><h2>Have a project<br>in mind? <span>Let’s talk.</span></h2><a class="button primary" href="mailto:joshwellcabalhin@gmail.com">joshwellcabalhin@gmail.com <span aria-hidden="true">↗</span></a>
-            <div class="social-links"><a href="https://discord.com/users/1340693240004870204" aria-label="Discord"><img src="img/discord_icon.png" alt=""></a><a href="https://x.com/llewtonsi" aria-label="X"><img src="img/x_icon.png" alt=""></a><a href="https://github.com/llewtonsi" aria-label="GitHub"><img src="img/github_logo.webp"></a></div>
+            <h2>Have a project<br>in mind? <span>Let’s talk.</span></h2><a class="button primary" href="mailto:joshwellcabalhin@gmail.com">joshwellcabalhin@gmail.com <span aria-hidden="true">↗</span></a>
+            <div class="social-links"><a href="https://discord.com/users/1340693240004870204" aria-label="Discord"><img src="img/discord_icon.png" alt=""></a><a href="https://x.com/llewtonsi" aria-label="X"><img src="img/x_icon.png" alt=""></a><a href="https://github.com/llewtonsi" aria-label="GitHub"><img src="img/github_logo.webp" alt=""></a></div>
         </section>
     </main>
     <footer class="wrap footer"><span>© <span id="year"></span> Joshwell Cabalhin</span><span>definitely not vibe-coded lol <span class="prompt">XD</span></span></footer>
