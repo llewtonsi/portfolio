@@ -137,6 +137,32 @@ h1 span, h2 span { color: var(--green); }
 .project-card p { max-width: 50ch; color: var(--muted); font-size: .76rem; line-height: 1.8; min-height: 3rem; }
 .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
 .tags span, .skill-item { border: 1px solid var(--border); background: var(--bg2); color: var(--green-soft); padding: .3rem .55rem; border-radius: 2px; font-size: .62rem; }
+/* featured project: full-width card with a screenshot filmstrip */
+.project-card.featured { grid-column: 1 / -1; }
+.project-card.featured p { min-height: 0; max-width: 72ch; }
+.project-shots {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(230px, 30%, 330px);
+    gap: .65rem;
+    margin-top: 1.25rem;
+    padding-bottom: .45rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-bright) transparent;
+}
+.project-shots::-webkit-scrollbar { height: 6px; }
+.project-shots::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+.project-shots figure { margin: 0; min-width: 0; overflow: hidden; border: 1px solid var(--border); background: var(--bg2); scroll-snap-align: start; }
+.project-shots img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform .3s ease; }
+.project-shots figure:hover img { transform: scale(1.04); }
+.project-shots figcaption { display: flex; align-items: baseline; gap: .4rem; padding: .5rem .55rem; font-size: .62rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.project-shots figcaption span { color: var(--green); font-size: .55rem; }
+/* phone screenshots keep their device shape instead of the 16:10 crop */
+.project-shots.portrait { grid-auto-columns: clamp(130px, 24%, 160px); }
+.project-shots.portrait img { aspect-ratio: 9 / 16; object-position: top; }
 .skills-list { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; list-style: none; margin: 1.25rem 0 0; padding: 0; }
 .skill-item { display: inline-flex; align-items: center; gap: .55rem; padding: 0; border: 0; background: transparent; color: var(--text); font-size: .8rem; }
 .skill-item img { width: 22px; height: 22px; object-fit: contain; }
@@ -160,6 +186,9 @@ h1 span, h2 span { color: var(--green); }
     .profile-img { width: min(78%, 340px); }
     .section { padding-block: 2.1rem; }
     .project-grid { grid-template-columns: 1fr; }
+    /* filmstrip: one screenshot at a time, swipeable with snap points */
+    .project-shots { grid-auto-columns: 78%; }
+    .project-shots.portrait { grid-auto-columns: 62%; }
     .about-section { padding-block: 3rem; }
     .about-layout { grid-template-columns: 1fr; }
     .education-card { min-height: 190px; }

@@ -31,7 +31,7 @@
             </div>
             <div class="hero-visual">
                 <img class="profile-img" src="img/profile.jpg" alt="Portrait of Joshwell">
-                <button id="music-button" class="music-control" type="button" aria-label="Play or pause background music"><img src="img/cassette.png" alt=""> <span id="music-desc">Play some lo-fi</span></button>
+                <button id="music-button" class="music-control" type="button" aria-label="Play or pause background music"><img src="img/icons/cassette.webp" alt=""> <span id="music-desc">Play some lo-fi</span></button>
             </div>
         </section>
 
@@ -39,7 +39,7 @@
                 
             <div class="section-heading"><h2>About<span> Me</span></h2><p class="section-note">I’m a Computer Science student who likes exploring big worlds, untangling puzzles, and learning how things work.</p></div>
             <div class="about-layout">
-                <article class="education-card"><p class="label">01 / Education</p><div class="education-line"><img src="img/vsu.png" alt="Visayas State University" class="school-logo"><div><h3>Bachelor of Science<br>in Computer Science</h3><p>Visayas State University</p></div></div><span class="education-index" aria-hidden="true">01</span></article>
+                <article class="education-card"><p class="label">01 / Education</p><div class="education-line"><img src="img/icons/vsu.webp" alt="Visayas State University" class="school-logo"><div><h3>Bachelor of Science<br>in Computer Science</h3><p>Visayas State University</p></div></div><span class="education-index" aria-hidden="true">01</span></article>
                 <article class="hobbies-card"><div class="hobby-heading"><div><p class="label">02 / Hobbies</p><h3>Games</h3></div></div>
                     <div class="hobby-gallery" aria-label="Favorite games">
                         <figure class="hobby-art"><img src="img/The_Elder_Scrolls_V_Skyrim_cover.png" alt="The Elder Scrolls V: Skyrim cover"><figcaption> Skyrim</figcaption></figure>
@@ -55,31 +55,53 @@
         <section id="projects" class="section wrap">
             <div class="section-heading"><h2>My<span> Projects</span></h2><p class="section-note">A few things I’ve built while learning, experimenting, and working with others.</p></div>
             <div class="project-grid">
-                <a class="project-card" href="https://codebucket-joshwell.vercel.app" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">01</span><span class="external">↗</span></div><img src="img/codebucket_icon.png" alt="" class="project-icon"><h3>Codebucket</h3><p>A programming practice platform with coding challenges and support for multiple languages.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></a>
-                <a class="project-card" href="https://github.com/llewtonsi/veinfall" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">02</span><span class="external">↗</span></div><img src="img/veinfall_icon.png" alt="" class="project-icon"><h3>Veinfall</h3><p>An open-source game project currently in development.</p><div class="tags"><span>Open source</span><span>Game development</span></div></a>
-                <a class="project-card" href="https://github.com/llewtonsi/aneonyx" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">03</span><span class="external">↗</span></div><img src="img/aneonyx_icon.png" alt="" class="project-icon"><h3>Aneonyx</h3><p>A terminal-inspired Android home launcher with searchable apps, built-in commands, and live device stats.</p><div class="tags"><span>Android</span><span>Kotlin</span><span>Jetpack Compose</span></div></a>
+                <a class="project-card featured" href="https://codebucket-joshwell.vercel.app" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">01</span><span class="external">↗</span></div><img src="img/icons/codebucket_icon.webp" alt="" class="project-icon"><h3>Codebucket</h3><p>A programming practice platform with coding challenges and support for multiple languages.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                    <div class="project-shots" aria-label="Codebucket screenshots">
+                        <figure><img src="img/screenshots/codebucket-landing.webp" alt="Codebucket landing page with the glowing bucket logo and feature cards" loading="lazy" decoding="async"><figcaption><span>01</span>Landing page</figcaption></figure>
+                        <figure><img src="img/screenshots/codebucket-dashboard.webp" alt="Dashboard showing problems solved, test pass rate, XP, and practice streak" loading="lazy" decoding="async"><figcaption><span>02</span>Dashboard</figcaption></figure>
+                        <figure><img src="img/screenshots/codebucket-challenges.webp" alt="Challenge library with search box and difficulty and topic filters" loading="lazy" decoding="async"><figcaption><span>03</span>Challenge library</figcaption></figure>
+                        <figure><img src="img/screenshots/codebucket-battlefield.webp" alt="Battlefield editor with the problem statement and a C code editor" loading="lazy" decoding="async"><figcaption><span>04</span>Battlefield</figcaption></figure>
+                        <figure><img src="img/screenshots/codebucket-ranking.webp" alt="Ranking table comparing players by solved challenges, XP, and pass rate" loading="lazy" decoding="async"><figcaption><span>05</span>Ranking</figcaption></figure>
+                        <figure><img src="img/screenshots/codebucket-profile.webp" alt="Profile page with stats, activity heatmap, and recent runs" loading="lazy" decoding="async"><figcaption><span>06</span>Profile</figcaption></figure>
+                        <figure><img src="img/screenshots/codebucket-settings.webp" alt="Settings page with account details and learning preferences" loading="lazy" decoding="async"><figcaption><span>07</span>Settings</figcaption></figure>
+                    </div>
+                </a>
+                <a class="project-card" href="https://github.com/llewtonsi/veinfall" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">02</span><span class="external">↗</span></div><img src="img/icons/veinfall_icon.webp" alt="" class="project-icon"><h3>Veinfall</h3><p>An open-source game project currently in development.</p><div class="tags"><span>Open source</span><span>Game development</span></div>
+                    <div class="project-shots" aria-label="Veinfall screenshots">
+                        <figure><img src="img/screenshots/menu.webp" alt="Veinfall main menu with Play, Settings, Credits, and Exit buttons" loading="lazy" decoding="async"><figcaption><span>01</span>Main menu</figcaption></figure>
+                        <figure><img src="img/screenshots/gameplay.webp" alt="Gameplay with the player by a campfire, health bars, and touch controls" loading="lazy" decoding="async"><figcaption><span>02</span>Gameplay</figcaption></figure>
+                        <figure><img src="img/screenshots/inventory.webp" alt="Inventory screen with equipment slots and an iron sword tooltip" loading="lazy" decoding="async"><figcaption><span>03</span>Inventory</figcaption></figure>
+                    </div>
+                </a>
+                <a class="project-card" href="https://github.com/llewtonsi/aneonyx" target="_blank" rel="noopener noreferrer"><div class="project-top"><span class="project-number">03</span><span class="external">↗</span></div><img src="img/icons/aneonyx_icon.webp" alt="" class="project-icon"><h3>Aneonyx</h3><p>A terminal-inspired Android home launcher with searchable apps, built-in commands, and live device stats.</p><div class="tags"><span>Android</span><span>Kotlin</span><span>Jetpack Compose</span></div>
+                    <div class="project-shots portrait" aria-label="Aneonyx screenshots">
+                        <figure><img src="img/screenshots/home-grid.webp" alt="Aneonyx app grid with search bar, pinned apps, and an A to Z index" loading="lazy" decoding="async"><figcaption><span>01</span>App grid</figcaption></figure>
+                        <figure><img src="img/screenshots/home-list.webp" alt="Aneonyx list view with the live system panel and app list" loading="lazy" decoding="async"><figcaption><span>02</span>App list</figcaption></figure>
+                        <figure><img src="img/screenshots/cli-system-panel.webp" alt="CLI mode showing live system stats and available commands" loading="lazy" decoding="async"><figcaption><span>03</span>CLI mode</figcaption></figure>
+                    </div>
+                </a>
             </div>
         </section>
 
         <section id="skills" class="section wrap">
             <div class="section-heading"><h2>My<span> Skills</span></h2><p class="section-note">Technologies and practices I’m developing through coursework and personal projects.</p></div>
             <ul class="skills-list" aria-label="Languages and technologies">
-                <li class="skill-item"><img src="img/c_logo.webp" alt="">C</li>
-                <li class="skill-item"><img src="img/cpp_logo.png" alt="">C++</li>
-                <li class="skill-item"><img src="img/Python-logo-notext.svg" alt="">Python</li>
-                <li class="skill-item"><img src="img/html_logo.png" alt="">HTML</li>
-                <li class="skill-item"><img src="img/css_logo.png" alt="">CSS</li>
-                <li class="skill-item"><img src="img/js_logo.png" alt="">JavaScript</li>
-                <li class="skill-item"><img src="img/godot_icon.png" alt="">Godot</li>
-                <li class="skill-item"><img src="img/git-icon-logo.svg" alt="">Git</li>
-                <li class="skill-item"><img src="img/github_logo.webp" alt="">Github</li>
-                <li class="skill-item"><img src="img/arch.png" alt="">Arch Linux</li>
+                <li class="skill-item"><img src="img/icons/c_logo.webp" alt="">C</li>
+                <li class="skill-item"><img src="img/icons/cpp_logo.webp" alt="">C++</li>
+                <li class="skill-item"><img src="img/icons/Python-logo-notext.svg" alt="">Python</li>
+                <li class="skill-item"><img src="img/icons/html_logo.webp" alt="">HTML</li>
+                <li class="skill-item"><img src="img/icons/css_logo.webp" alt="">CSS</li>
+                <li class="skill-item"><img src="img/icons/js_logo.webp" alt="">JavaScript</li>
+                <li class="skill-item"><img src="img/icons/godot_icon.webp" alt="">Godot</li>
+                <li class="skill-item"><img src="img/icons/git-icon-logo.svg" alt="">Git</li>
+                <li class="skill-item"><img src="img/icons/github_logo.webp" alt="">Github</li>
+                <li class="skill-item"><img src="img/icons/arch.webp" alt="">Arch Linux</li>
             </ul>
         </section>
 
         <section id="contact" class="section wrap contact-section">
             <h2>Have a project<br>in mind? <span>Let’s talk.</span></h2><a class="button primary" href="mailto:joshwellcabalhin@gmail.com">joshwellcabalhin@gmail.com <span aria-hidden="true">↗</span></a>
-            <div class="social-links"><a href="https://discord.com/users/1340693240004870204" aria-label="Discord"><img src="img/discord_icon.png" alt=""></a><a href="https://x.com/llewtonsi" aria-label="X"><img src="img/x_icon.png" alt=""></a><a href="https://github.com/llewtonsi" aria-label="GitHub"><img src="img/github_logo.webp" alt=""></a></div>
+            <div class="social-links"><a href="https://discord.com/users/1340693240004870204" aria-label="Discord"><img src="img/icons/discord_icon.webp" alt=""></a><a href="https://x.com/llewtonsi" aria-label="X"><img src="img/icons/x_icon.webp" alt=""></a><a href="https://github.com/llewtonsi" aria-label="GitHub"><img src="img/icons/github_logo.webp" alt=""></a></div>
         </section>
     </main>
     <footer class="wrap footer"><span>© <span id="year"></span> Joshwell Cabalhin</span><span>definitely not vibe-coded lol <span class="prompt">XD</span></span></footer>
